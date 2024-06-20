@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
-import { Slot, SplashScreen } from 'expo-router'
+import { Slot, SplashScreen, Stack } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useFonts } from 'expo-font'
 
@@ -28,9 +28,22 @@ const RootLayout = () => {
   },[fontsLoaded,error])
   if(!fontsLoaded && !error) return null
   return (
-    <SafeAreaView>
-      <Slot />
-    </SafeAreaView>
+    <Stack>
+      <Stack.Screen name='index' options={{
+        headerShown:false
+      }}/>
+      <Stack.Screen name='(auth)' options={{
+        headerShown:false
+      }}/><Stack.Screen name='(tabs)' options={{
+        headerShown:false
+      }}/>
+      {/**
+       * <Stack.Screen name='/search/[query]' options={{
+        headerShown:false
+      }}/>
+       * 
+       */}  
+    </Stack>
   )
 }
 
