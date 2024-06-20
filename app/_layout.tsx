@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { Slot, SplashScreen, Stack } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useFonts } from 'expo-font'
+import GlobalProvider from '@/context/GlobalProvider'
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,7 +29,8 @@ const RootLayout = () => {
   },[fontsLoaded,error])
   if(!fontsLoaded && !error) return null
   return (
-    <Stack>
+    <GlobalProvider>
+        <Stack>
       <Stack.Screen name='index' options={{
         headerShown:false
       }}/>
@@ -44,6 +46,9 @@ const RootLayout = () => {
        * 
        */}  
     </Stack>
+
+    </GlobalProvider>
+  
   )
 }
 
