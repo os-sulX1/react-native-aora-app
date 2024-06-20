@@ -113,7 +113,7 @@ export const getLatestPosts= async() =>{
     const posts = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.videoCollectionId,
-      [Query.orderDesc('$createdAt')]
+      [Query.orderDesc('$createdAt'), Query.limit(5)]
     )
 
     return posts.documents
