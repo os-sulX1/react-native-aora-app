@@ -44,7 +44,7 @@ const Home = () => {
                 <Image source={images.logoSmall} className="w-9 h-9" resizeMode="contain"/>
               </View>
 						</View>
-            <SearchInput otherStyles="" title="" value=""  keyboardType="" placeholder="" />
+            <SearchInput  />
 
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-gray-100 font-pregular mb-3">

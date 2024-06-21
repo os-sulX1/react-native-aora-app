@@ -122,3 +122,35 @@ export const getLatestPosts= async() =>{
     
   }
 }
+
+export const searchPosts= async(query:string | string[] | undefined) =>{
+  try {
+    
+    const posts = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.videoCollectionId,
+      [Query.search('title',query)]
+    )
+
+    return posts.documents
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
+
+
+export const getUserPosts= async(userId:string  | undefined) =>{
+  try {
+    
+    const posts = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.videoCollectionId,
+      [Query.equal("creator", userId  as string)]    )
+
+    return posts.documents
+  } catch (error) {
+    console.log(error)
+    
+  }
+}

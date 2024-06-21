@@ -2,7 +2,7 @@ import { type SetStateAction, useEffect, useState } from "react"
 import type { Models } from "react-native-appwrite"
 import { getAllPosts } from "./appwrite"
 
- const useAppwrite = (fn:()=>void)=>{
+ const useAppwrite = (fn:()=>void ,query?:string | string[] | undefined)=>{
   const [data, setData]= useState<SetStateAction<Models.Document[] |undefined>>([])
   const [isLoading, setIsLoading] = useState(true)
   const fetchData = async()=>{
